@@ -7,6 +7,8 @@ import com.google.gson.Gson;
 import spark.Request;
 import spark.Response;
 import umm3601.todo.ToDoController;
+import umm3601.todo.TodoController;
+import umm3601.todo.TodoDatabase;
 import umm3601.user.Database;
 import umm3601.user.UserController;
 
@@ -16,13 +18,15 @@ import static spark.debug.DebugScreen.*;
 
 public class Server {
     public static final String USER_DATA_FILE = "src/main/data/users.json";
+    public static final String TODO_DATA_FILE = "src/main/data/todos.json";
     private static Database userDatabase;
+    private static TodoDatabase todoDatabase;
 
     public static void main(String[] args) throws IOException {
         final Gson gson = new Gson();
 
         UserController userController = buildUserController();
-        ToDoController toDoController = new ToDoController();
+        TodoController todoController = buildTodoController();
 
         //Configure Spark
         port(4567);
@@ -73,14 +77,14 @@ public class Server {
         // List todos
         get("api/todos", (req, res) -> {
             res.type("application/json");
-            return gson.toJson(toDoController.listToDos(req.queryMap().toMap()));
+            return gson.toJson(todoController.getTodos(req, res));
         });
 
         // See specific todos
         get("api/todos/:id", (req, res) -> {
             res.type("application/json");
             String id = req.params("id");
-            return gson.toJson(toDoController.getToDo(id));
+            return gson.toJson(todoController.getTodo(req, res));
         });
 
         // An example of throwing an unhandled exception so you can see how the
@@ -113,7 +117,7 @@ public class Server {
      * there are problems reading from the JSON "database" file.
      * If that happens we'll print out an error message and shut
      * the server down.
-     * @throws IOException if we can't open or read the user data file
+     * gives an IOException if we can't open or read the user data file
      */
     private static UserController buildUserController() {
         UserController userController = null;
@@ -131,6 +135,23 @@ public class Server {
         }
 
         return userController;
+    }
+
+    private static TodoController buildTodoController(){
+      TodoController todoController = null;
+
+      try {
+        todoDatabase = new TodoDatabase(TODO_DATA_FILE);
+        todoController = new TodoController(todoDatabase);
+      }
+      catch (IOException e) {
+        System.err.println("The server failed to load the todo data; shutting down.");
+        e.printStackTrace();
+
+        stop();
+        System.exit(1);
+      }
+      return todoController;
     }
 
     // Enable GZIP for all responses

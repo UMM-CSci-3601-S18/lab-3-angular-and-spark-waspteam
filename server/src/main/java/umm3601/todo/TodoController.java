@@ -35,8 +35,6 @@ public class TodoController {
   /**
    * Get the single todo specified by the `id` parameter in the request.
    *
-   * @param req the HTTP request
-   * @param res the HTTP response
    * @return a success JSON object if the todo with that ID is found, a fail
    * JSON object if no todo with that ID is found
    */
