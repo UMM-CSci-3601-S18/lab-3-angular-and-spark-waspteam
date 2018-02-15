@@ -89,7 +89,7 @@ Turn on your repo in [Travis CI][travis], replace the build status image in this
 [e2e-testing]: https://coryrylan.com/blog/introduction-to-e2e-testing-with-the-angular-cli-and-protractor
 [environments]: http://tattoocoder.com/angular-cli-using-the-environment-option/
 [labtasks]: LABTASKS.md
-[travis]: https://travis-ci.org/
+[travis]: https://travis-ci.org/UMM-CSci-3601-S18/lab-3-angular-and-spark-waspteam
 [angular-cli-commands]: https://github.com/angular/angular-cli/wiki
 [status-codes]: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
