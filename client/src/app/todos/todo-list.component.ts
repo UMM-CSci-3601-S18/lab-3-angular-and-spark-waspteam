@@ -20,6 +20,7 @@ export class TodoListComponent implements OnInit {
   public todoBody: string;
   public todoCategory: string;
 
+  selected = 'option2';
 
   // Inject the TodoListService into this component.
   // That's what happens in the following constructor.

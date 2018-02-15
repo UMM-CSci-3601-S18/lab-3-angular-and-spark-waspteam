@@ -7,6 +7,7 @@ import {
   MatExpansionModule,
   MatListModule,
   MatTooltipModule,
+  MatSelectModule,
   MdButtonModule,
   MdCardModule,
   MdIconModule,
