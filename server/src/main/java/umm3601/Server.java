@@ -22,7 +22,7 @@ public class Server {
     private static Database userDatabase;
     private static TodoDatabase todoDatabase;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         final Gson gson = new Gson();
 
         UserController userController = buildUserController();
