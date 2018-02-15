@@ -71,8 +71,11 @@ public class Server {
         // See specific user
         get("api/users/:id", userController::getUser);
 
-        /// Todos Endpoints //////////////////////////
-        /////////////////////////////////////////////
+        /// Todos Endpoints//////////////////////////
+        ////////////////////////////////////////////
+
+        //List todos, filtered using query paramters
+        get("api/todos", todoController::getTodos);
 
         // List todos
         get("api/todos", (req, res) -> {
