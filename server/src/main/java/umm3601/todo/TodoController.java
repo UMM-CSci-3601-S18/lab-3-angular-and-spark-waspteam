@@ -44,8 +44,8 @@ public class TodoController {
     Todo todo = database.getTodo(id);
     if (todo != null) {
 
-      //return buildSuccessJsonResponse("todo", gson.toJsonTree(todo));
-      return gson.toJsonTree(todo);
+      return buildSuccessJsonResponse("todo", gson.toJsonTree(todo));
+      //return gson.toJsonTree(todo);
     } else {
       String message = "Todo with ID " + id + " wasn't found.";
       return buildFailJsonResponse("id", message);

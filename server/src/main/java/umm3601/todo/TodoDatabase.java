@@ -46,7 +46,15 @@ public class TodoDatabase {
   public Todo[] listTodos(Map<String, String[]> queryParams) {
     Todo[] filteredTodos = allTodos;
 
+    if(queryParams.containsKey("body")){
+      String targetBody = queryParams.get("body")[0];
+      filteredTodos = filterTodosByBody(filteredTodos, targetBody);
+    }
+
     return filteredTodos;
   }
 
+  public Todo[] filterTodosByBody(Todo[] todos, String targetBody){
+    return Arrays.stream(todos).filter(x -> x.body.contains(targetBody)).toArray(Todo[]::new);
+  }
 }

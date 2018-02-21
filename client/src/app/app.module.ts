@@ -10,6 +10,7 @@ import {UserListComponent} from './users/user-list.component';
 import {UserListService} from './users/user-list.service';
 import {TodoListComponent} from "./todos/todo-list.component";
 import {TodoListService} from "./todos/todo-list.service";
+import {TodoComponent} from "./todos/todo.component"
 import {Routing} from './app.routes';
 import {APP_BASE_HREF} from '@angular/common';
 
@@ -30,6 +31,7 @@ import {UserComponent} from './users/user.component';
     UserListComponent,
     UserComponent,
     TodoListComponent,
+    TodoComponent
 
   ],
   providers: [

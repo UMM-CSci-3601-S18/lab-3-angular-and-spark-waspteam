@@ -3,10 +3,11 @@ import {UserListService} from './user-list.service';
 import {User} from './user';
 
 @Component({
-  selector: 'app-user-component',
+  selector: 'app-todo-component',
   styleUrls: ['./user.component.css'],
   templateUrl: 'user.component.html'
 })
+
 export class UserComponent implements OnInit {
   public user: User = null;
   private id: string;

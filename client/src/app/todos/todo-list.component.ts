@@ -100,4 +100,3 @@ export class TodoListComponent implements OnInit {
     this.refreshTodos();
   }
 }
-

@@ -75,7 +75,7 @@ public class Server {
         ////////////////////////////////////////////
 
         //List todos, filtered using query paramters
-        get("api/todos", todoController::getTodos);
+        //get("api/todos", todoController::getTodos);
 
         // List todos
         get("api/todos", (req, res) -> {
