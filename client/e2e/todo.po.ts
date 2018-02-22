@@ -30,7 +30,7 @@ export class TodoPage {
     let input = element(by.id('todoOwner'));
     input.click();
     input.sendKeys(name);
-    return element(by.className("ownerDisplay"));
+    return element(by.className("ownerDisplay")).getText();
   }
 
   // The following is ready to be implemented when there is an element with the id "todoStatus"

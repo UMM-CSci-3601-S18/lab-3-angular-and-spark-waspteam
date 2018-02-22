@@ -20,7 +20,7 @@
           <input matInput id="todoBody" #input placeholder="Filter by body" (input)="todoBody = $event.target.value">
         </mat-form-field>
         <mat-form-field>
-          <input matInput id="todoCategory" #input type = "text" placeholder="Filter by category" (input)="todoCategory = $event.target.value">
+          <input matInput id="todoCategory" #input placeholder="Filter by category" (input)="todoCategory = $event.target.value">
         </mat-form-field>
 
         <mat-accordion *ngIf="todos; else todosError">
