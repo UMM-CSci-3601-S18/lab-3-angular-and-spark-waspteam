@@ -1,4 +1,5 @@
 import {browser, by, element, Key} from 'protractor';
+import {Todo} from "../src/app/todos/todo";
 
 export class TodoPage {
   navigateTo() {
@@ -30,7 +31,7 @@ export class TodoPage {
     let input = element(by.id('todoOwner'));
     input.click();
     input.sendKeys(name);
-    return element(by.className("ownerDisplay")).getText();
+    return element(by.className("ownerDisplay")).getAttribute("value");
   }
 
   // The following is ready to be implemented when there is an element with the id "todoStatus"
@@ -48,14 +49,16 @@ export class TodoPage {
     let input = element(by.id('todoCategory'));
     input.click();
     input.sendKeys(category);
-    return element(by.className("categoryDisplay"));
+    let categoryElement = element.all(by.className("categoryDisplay")).get(0);
+    return categoryElement.getText();
   }
 
   getTodoByBody(body: string) {
     let input = element(by.id("todoBody"));
     input.click();
     input.sendKeys(body);
-    return element(by.className("bodyDisplay"));
+    let bodyElement = element.all(by.className("bodyDisplay")).get(0);
+    return bodyElement.getText();
   }
 
   getUniqueTodo(todoID:string) {
