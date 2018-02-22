@@ -33,7 +33,7 @@ export class TodoListComponent implements OnInit {
   }
 
 
-  public filterTodos(searchOwner: string, searchStatus: boolean, searchBody: string, searchCategory: string): Todo[] {
+  public filterTodos(searchOwner: string, searchBody: string, searchCategory: string): Todo[] {
 
     this.filteredTodos = this.todos;
 
@@ -46,15 +46,19 @@ export class TodoListComponent implements OnInit {
       });
     }
 
+    //Commented out until the dropdown for status is working
+    /*
     // Filter by status
     if (searchStatus != null) {
       this.filteredTodos = this.filteredTodos.filter((todo: Todo) => {
         return !searchStatus || (todo.status === searchStatus);
       });
     }
+*/
 
     // Filter by body
     if (searchBody != null) {
+      searchBody = searchBody.toLocaleLowerCase();
       this.filteredTodos = this.filteredTodos.filter((todo: Todo) =>{
         return !searchBody || (todo.body.includes(searchBody));
       });
@@ -62,8 +66,9 @@ export class TodoListComponent implements OnInit {
 
     //Filter by category
     if (searchCategory != null) {
+      searchCategory = searchCategory.toLocaleLowerCase();
       this.filteredTodos = this.filteredTodos.filter((todo: Todo) =>{
-        return !searchCategory || (todo.category === searchCategory);
+        return !searchCategory || (todo.category.includes(searchCategory));
       })
     }
 
@@ -87,7 +92,10 @@ export class TodoListComponent implements OnInit {
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
-        this.filterTodos(this.todoOwner, this.todoStatus, this.todoBody, this.todoCategory);
+        this.filterTodos(this.todoOwner,
+          //this is commented out for now since dropdowns aren't working in the way we think they should
+          //this.todoStatus,
+          this.todoBody, this.todoCategory);
       },
       err => {
         console.log(err);

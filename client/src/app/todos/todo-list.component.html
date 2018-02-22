@@ -17,14 +17,14 @@
         </mat-form-field>
         -->
         <mat-form-field>
-          <input matInput id="todoBody" #input type = "text" placeholder="Filter by body">
+          <input matInput id="todoBody" #input placeholder="Filter by body" (input)="todoBody = $event.target.value">
         </mat-form-field>
         <mat-form-field>
-          <input matInput id="todoCategory" #input type = "text" placeholder="Filter by category">
+          <input matInput id="todoCategory" #input type = "text" placeholder="Filter by category" (input)="todoCategory = $event.target.value">
         </mat-form-field>
 
         <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus, todoBody, todoCategory)">
+          <mat-expansion-panel #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoBody, todoCategory)">
             <mat-expansion-panel-header>
 
               <mat-panel-title class="statusDisplay" matTooltip="Status: {{todo.status}}">{{todo.owner}}</mat-panel-title>
