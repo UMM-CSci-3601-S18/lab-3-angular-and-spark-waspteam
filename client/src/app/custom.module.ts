@@ -36,6 +36,7 @@ const MATERIAL_MODULES: any[] = [
   MdButtonModule,
   MdIconModule,
   MdToolbarModule,
+  MatSelectModule,
   MdCardModule,
   MdMenuModule,
   MdSidenavModule,
