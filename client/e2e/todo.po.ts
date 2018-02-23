@@ -39,17 +39,24 @@ export class TodoPage {
     input.select(status);
   } */
 
-  getTodoByCategory(category: string) {
+  getTodoCategoryByCategory(category: string) {
     let input = element(by.id('todoCategory'));
     input.click();
     input.sendKeys(category);
-    return element.all(by.css('.categoryDisplay')).first().getText();
+
+    let el = element.all(by.css('.categoryDisplay')).first();
+    let container = element.all(by.css('.todoContainer')).first();
+    container.click();
+    let result = el.getText();
+    return result;
   }
 
-  getTodoByBody(body: string) {
+  getTodoBodyByBody(body: string) {
     let input = element(by.id('todoBody'));
     input.click();
     input.sendKeys(body);
+    let container = element.all(by.css('.todoContainer')).first();
+    container.click();
     return element.all(by.css('.bodyDisplay')).first().getText();
   }
 

@@ -30,8 +30,8 @@ describe('Todo list', () => {
 
   it('should type something in filter name box and check that it returned correct element', () => {
     page.navigateTo();
-    expect(page.getTodoByCategory("groceries")).toContain("groceries");
-    expect(page.getTodoByBody("ipsum")).toContain("ipsum");
+    expect(page.getTodoCategoryByCategory("groceries")).toContain("groceries");
+    expect(page.getTodoBodyByBody("ipsum")).toContain("ipsum");
   });
 
 });

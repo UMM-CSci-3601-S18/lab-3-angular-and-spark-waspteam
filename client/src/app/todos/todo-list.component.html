@@ -8,14 +8,14 @@
           <input matInput id="todoOwner" #input placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
         </mat-form-field>
 
-        <mat-form-field>
-          <mat-select matInput #input [(value)]="selected">
+        <!--<mat-form-field>
+          <mat-select [(value)]="selected">
             <mat-option>None</mat-option>
             <mat-option value="option1">Option 1</mat-option>
             <mat-option value="option2">Option 2</mat-option>
             <mat-option value="option3">Option 3</mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field>-->
         <!--<mat-form-field>
           <mat-select id="todoStatus">
             <mat-option value="">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</mat-option>
@@ -38,7 +38,7 @@
         </mat-form-field>
 
         <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel id="todoContainer" #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoBody, todoCategory)">
+          <mat-expansion-panel class="todoContainer" #elem [id]="todo.status" *ngFor="let todo of this.filterTodos(todoOwner, todoBody, todoCategory)">
             <mat-expansion-panel-header>
 
               <mat-panel-title class="statusDisplay" matTooltip="Status: {{todo.status}}">{{todo.owner}}</mat-panel-title>
