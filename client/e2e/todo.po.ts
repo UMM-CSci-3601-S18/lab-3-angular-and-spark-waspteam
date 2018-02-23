@@ -30,7 +30,6 @@ export class TodoPage {
     let input = element(by.id('todoOwner'));
     input.click();
     input.sendKeys(name);
-    return element(by.className("ownerDisplay")).getText();
   }
 
   // The following is ready to be implemented when there is an element with the id "todoStatus"
@@ -40,22 +39,18 @@ export class TodoPage {
     input.select(status);
   } */
 
-  selectUpKey() {
-    browser.actions().sendKeys(Key.ARROW_UP).perform();
-  }
-
   getTodoByCategory(category: string) {
     let input = element(by.id('todoCategory'));
     input.click();
     input.sendKeys(category);
-    return element(by.className("categoryDisplay"));
+    return element.all(by.css('.categoryDisplay')).first().getText();
   }
 
   getTodoByBody(body: string) {
-    let input = element(by.id("todoBody"));
+    let input = element(by.id('todoBody'));
     input.click();
     input.sendKeys(body);
-    return element(by.className("bodyDisplay"));
+    return element.all(by.css('.bodyDisplay')).first().getText();
   }
 
   getUniqueTodo(todoID:string) {
