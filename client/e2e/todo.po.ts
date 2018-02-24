@@ -60,6 +60,15 @@ export class TodoPage {
     return element.all(by.css('.bodyDisplay')).first().getText();
   }
 
+  getTodoStatusByStatus(status: string) {
+    let input = element(by.id('todoStatus'));
+    input.click;
+    input.sendKeys(status);
+    let containter = element.all(by.css('.todoContainter')).first();
+    containter.click;
+    return element.all(by.css('.statusClickDisplay')).first().getText();
+  }
+
   getUniqueTodo(todoID:string) {
     let todo = element(by.id(todoID)).getText();
     this.highlightElement(by.id(todoID));

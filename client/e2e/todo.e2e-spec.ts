@@ -32,6 +32,7 @@ describe('Todo list', () => {
     page.navigateTo();
     expect(page.getTodoCategoryByCategory("groceries")).toContain("groceries");
     expect(page.getTodoBodyByBody("ipsum")).toContain("ipsum");
+    expect(page.getTodoStatusByStatus("false")).toContain("false");
   });
 
 });
