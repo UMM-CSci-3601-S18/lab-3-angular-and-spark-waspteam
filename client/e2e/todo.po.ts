@@ -62,10 +62,10 @@ export class TodoPage {
 
   getTodoStatusByStatus(status: string) {
     let input = element(by.id('todoStatus'));
-    input.click;
+    input.click();
     input.sendKeys(status);
     let containter = element.all(by.css('.todoContainter')).first();
-    containter.click;
+    containter.click();
     return element.all(by.css('.statusClickDisplay')).first().getText();
   }
 
